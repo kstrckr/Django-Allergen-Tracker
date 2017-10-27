@@ -4,14 +4,14 @@ from django.views import generic
 from .models import Allergen, Comment
 # Create your views here.
 
-class allergen_list(generic.ListView):
+class AllergenList(generic.ListView):
     template_name = 'allergens/index.html'
     context_object_name = 'allergen_list'
 
     def get_queryset(self):
         return Allergen.objects.all()
 
-class DetailView(generic.ListView):
+class CommentList(generic.ListView):
     model = Comment
     template_name = 'allergens/comments.html'
     context_object_name = 'allergen_comments'

@@ -4,7 +4,6 @@
 <ul>
     {% for allergen in allergen_list %}
     <li>
-        
         <a href="{% url 'allergens:comments' allergen %}">Comments</a>
         {{ allergen.name }} - {{ allergen.servings }}
     </li>
