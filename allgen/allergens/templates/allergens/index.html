@@ -1,11 +1,11 @@
-<h1>Hello world!</h1>
+<h1>Allergen Tracker</h1>
 
 {% if allergen_list %}
 <ul>
     {% for allergen in allergen_list %}
     <li>
-        <a href="{% url 'allergens:comments' allergen %}">Comments</a>
-        {{ allergen.name }} - {{ allergen.servings }}
+        <a href="{% url 'allergens:comments' allergen.name %}">Comments</a>
+        {{ allergen.name }} - {{ allergen.comment_set.all|length }}
     </li>
     {% endfor %}
 </ul>

@@ -1,5 +1,9 @@
-<h1>Comments</h1>
+<h1>{{ allergen_name }} comments</h1>
 
 {% for comment in allergen_comments %}
 <p>{{ comment.comment_text }}</p>
+<form action="{{ comment.pk }}/" method='post'>
+    {% csrf_token %}
+    <input type='submit' value='Delete' />
+</form>
 {% endfor %}

@@ -5,5 +5,6 @@ app_name = 'allergens'
 urlpatterns = [
     url(r'^$', views.AllergenList.as_view()),
     url(r'^(?P<allergen>\D+)/$', views.CommentList.as_view(), name='comments'),
+    url(r'^(?P<allergen>\D+)/(?P<pk>\d+)/$', views.CommentDelete.as_view(), name='delete')
 
 ]
