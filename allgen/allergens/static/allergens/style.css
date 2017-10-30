@@ -1,0 +1,41 @@
+html {
+    font-size: 1rem;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: rgb(116,39,32);
+    color: lightgrey;
+}
+
+.heading {
+    background-color: rgb(145,95,40);
+    font-size: 1.8rem
+}
+
+
+.primary-color {
+    background-color: rgb(140,77,38);
+    color: lightgrey;
+}
+
+@media (min-width: 576px) {
+    .heading {
+        font-size: 2.4rem;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    
+}

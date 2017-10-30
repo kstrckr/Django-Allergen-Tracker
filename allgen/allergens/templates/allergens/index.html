@@ -1,14 +1,32 @@
-<h1>Allergen Tracker</h1>
+{% extends 'layout.html' %}
 
-{% if allergen_list %}
-<ul>
-    {% for allergen in allergen_list %}
-    <li>
-        <a href="{% url 'allergens:comments' allergen.name %}">Comments</a>
-        {{ allergen.name }} - {{ allergen.comment_set.all|length }}
-    </li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>no allergens in DB</p>
-{% endif %}
+{% block title %}
+Allergen Tracker
+{% endblock title %}
+
+{% block content %}
+<div class='w-75 mx-auto container'>
+    {% if allergen_list %}
+    <div class='list-group'>
+        {% for allergen in allergen_list %}
+            <a href="{% url 'allergens:comments' allergen.name %}" class='list-group-item list-group-item-action primary-color'>
+                <div class='row justify-content-center'>
+                    <div class='col-sm'>{{ allergen.name }}:</div>
+                    {% if allergen.comment_set.all %}
+                    <span class="col-sm-3 badge badge-light">
+                        {% with logs=allergen.comment_set.count %} 
+                            {{ logs }} Log{{logs|pluralize }} Saved
+                        {% endwith %}
+                    </span>
+                    {% else %}
+                    <span class="col-sm-3 badge badge-info">Add a log</span>
+                    {% endif %}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>no allergens in DB</p>
+    {% endif %}
+</div>
+{% endblock content %}
