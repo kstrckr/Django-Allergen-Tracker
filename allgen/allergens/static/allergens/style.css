@@ -8,9 +8,13 @@ body {
     color: lightgrey;
 }
 
-.heading {
+.heading{
     background-color: rgb(145,95,40);
-    font-size: 1.8rem
+    font-size: 1.8rem;
+}
+
+.heading a {
+    color: lightgrey;
 }
 
 

@@ -3,7 +3,9 @@ from django.urls import reverse
 from django.views import generic
 
 from .models import Allergen, Comment
+from . import forms
 # Create your views here.
+
 
 class AllergenList(generic.ListView):
     model = Allergen
@@ -12,6 +14,25 @@ class AllergenList(generic.ListView):
 
     def get_queryset(self):
         return Allergen.objects.all()
+
+class CreateComment(generic.CreateView):
+    model = Comment
+    fields = [
+        'comment_text',
+        'reaction',
+        ]
+
+    def form_valid(self, form):
+        allergen_from_url = self.kwargs['allergen']
+        allergen_instance = Allergen.objects.get(name__exact=allergen_from_url)
+        form.instance.allergen = allergen_instance
+        return super(CreateComment, self).form_valid(form)
+
+    def get_success_url(self):
+        allergen = self.kwargs['allergen']
+        return reverse('allergens:comments', kwargs={'allergen':allergen})
+
+
 
 class CommentList(generic.ListView):
     model = Comment

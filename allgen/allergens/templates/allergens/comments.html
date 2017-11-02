@@ -1,14 +1,33 @@
 {% extends 'layout.html' %}
 
-{% block content %}
-    <h1>{{ allergen_name }} comments</h1>
+{% block title%}
+{{ allergen_name }}
+{% endblock title%}
 
+{% block content %}
+<div class='container'>
+    <h1>{{ allergen_name }} comments</h1>
+</div>
+
+    <div class='container'>
+        <p>
+            <form action ='comment' method='get'>
+                {% csrf_token %}
+                <input type='submit' value='Add Comment' class='btn'/>
+            </form>
+        </p>
+    </div>
+<div class='container'>
     {% for comment in allergen_comments %}
-    <p>{{ comment.comment_text }}</p>
+    <p>{{ comment.comment_text }}
     <form action="{{ comment.pk }}/" method='get'>
         {% csrf_token %}
         <input type='submit' value='Delete' class="btn btn-danger"/>
     </form>
+    </p>
+
     {% endfor %}
+</div>
+
 {% endblock content %}
 
