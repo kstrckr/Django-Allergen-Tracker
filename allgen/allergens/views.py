@@ -21,6 +21,12 @@ class CreateComment(generic.CreateView):
         'comment_text',
         'reaction',
         ]
+    context_object_name = 'allergen_details'
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateComment, self).get_context_data(**kwargs)
+        context['allergen_name'] = self.kwargs['allergen']
+        return context
 
     def form_valid(self, form):
         allergen_from_url = self.kwargs['allergen']

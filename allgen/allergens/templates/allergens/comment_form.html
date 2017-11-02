@@ -1,11 +1,12 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class='container'>
-<form action='' method='post'>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type='submit' value='Save Comment' />
-</form>
+<h1 class='w-75 mx-auto container'>Enter a comment for {{ allergen_name }}</h1>
+<div class='w-75 mx-auto container'>
+    <form action='' method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='Save Comment' />
+    </form>
 </div>
 {% endblock content %}
