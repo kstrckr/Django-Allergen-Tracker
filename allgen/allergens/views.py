@@ -38,7 +38,17 @@ class CreateComment(generic.CreateView):
         allergen = self.kwargs['allergen']
         return reverse('allergens:comments', kwargs={'allergen':allergen})
 
+class CommentUpdate(generic.UpdateView):
+    pass
+    model = Comment
+    fields = [
+        'comment_text',
+        'reaction',
+    ]
 
+    def get_success_url(self):
+        allergen = self.kwargs['allergen']
+        return reverse('allergens:comments', kwargs={'allergen':allergen})
 
 class CommentList(generic.ListView):
     model = Comment
@@ -60,4 +70,3 @@ class CommentDelete(generic.DeleteView):
     def get_success_url(self):
         allergen = self.kwargs['allergen']
         return reverse('allergens:comments', kwargs={'allergen':allergen})
-
