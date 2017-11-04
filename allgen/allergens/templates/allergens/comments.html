@@ -9,27 +9,30 @@
     <h1>{{ allergen_name }}</h1>
 </div>
 
-    <div class='w-75 mx-auto container'>
-        <p>
-            <form action ='comment' method='get'>
-                {% csrf_token %}
-                <input type='submit' value='Add Comment' class='btn btn-primary btn-sm'/>
-            </form>
-        </p>
-    </div>
 <div class='w-75 mx-auto container'>
-    {% for comment in allergen_comments %}
-    <p>{{ comment.comment_text }}
-    <form action="{{ comment.pk }}/update/" method='get' class='update'>
-        {% csrf_token %}
-        <input type='submit' value='Edit' class='btn btn-secondary btn-sm'/>
-    </form>
-    <form action="{{ comment.pk }}/" method='get' class='delete'>
-        {% csrf_token %}
-        <input type='submit' value='Delete' class="btn btn-danger btn-sm"/>
-    </form>
+    <p>
+        <form action ='comment' method='get'>
+            {% csrf_token %}
+            <input type='submit' value='Add Comment' class='btn btn-primary btn-sm'/>
+        </form>
     </p>
+</div>
 
+<div class='w-75 mx-auto list-group'>
+    {% for comment in allergen_comments %}
+    <div class='list-group-item d-flex justify-content-between align-items-center primary-color'>
+        <p>{{ comment.comment_text }}</p>
+        <div class='d-flex'>
+            <form action="{{ comment.pk }}/update/" method='get' class='update'>
+                {% csrf_token %}
+                <input type='submit' value='Edit' class='btn btn-secondary btn-sm'/>
+            </form>
+            <form action="{{ comment.pk }}/" method='get' class='delete'>
+                {% csrf_token %}
+                <input type='submit' value='Delete' class="btn btn-danger btn-sm"/>
+            </form>
+        </div>
+    </div>
     {% endfor %}
 </div>
 
