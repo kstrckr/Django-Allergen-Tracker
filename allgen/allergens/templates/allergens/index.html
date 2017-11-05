@@ -5,24 +5,26 @@ Allergen Tracker
 {% endblock title %}
 
 {% block content %}
-<div class='w-75 mx-auto container'>
+<div class='container w-75'>
     {% if allergen_list %}
-    <div class='list-group'>
+    <div class='row'>
         {% for allergen in allergen_list %}
-            <a href="{% url 'allergens:comments' allergen.name %}" class='list-group-item list-group-item-action primary-color'>
-                <div class='row justify-content-center'>
-                    <div class='col-sm'>{{ allergen.name }}:</div>
+        <div class='col-sm-6 border'>
+            <a href="{% url 'allergens:comments' allergen.name %}">
+                <div class='d-flex flex-column'>
+                    <p class='d-flex justify-content-center'>{{ allergen.name }}:</p>
                     {% if allergen.comment_set.all %}
-                    <span class="col-sm-3 badge badge-light">
+                    <p class="badge badge-light">
                         {% with logs=allergen.comment_set.count %} 
                             {{ logs }} Log{{logs|pluralize }} Saved
                         {% endwith %}
-                    </span>
+                    </p>
                     {% else %}
-                    <span class="col-sm-3 badge badge-info">No Logs</span>
+                    <p class="badge badge-info">No Logs</p>
                     {% endif %}
                 </div>
             </a>
+        </div>
         {% endfor %}
     </div>
     {% else %}

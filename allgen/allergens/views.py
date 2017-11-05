@@ -13,7 +13,7 @@ class AllergenList(generic.ListView):
     context_object_name = 'allergen_list'
 
     def get_queryset(self):
-        return Allergen.objects.all()
+        return Allergen.objects.all().order_by('name')
 
 class CreateComment(generic.CreateView):
     model = Comment

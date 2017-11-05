@@ -23,6 +23,10 @@ body {
     color: lightgrey;
 }
 
+.allergen a{
+    color: lightgrey;
+}
+
 .update {
     display: inline;
 }
