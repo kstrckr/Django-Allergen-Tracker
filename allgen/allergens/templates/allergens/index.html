@@ -9,10 +9,10 @@ Allergen Tracker
     {% if allergen_list %}
     <div class='row'>
         {% for allergen in allergen_list %}
-        <div class='col-sm-6 border'>
-            <a href="{% url 'allergens:comments' allergen.name %}">
-                <div class='d-flex flex-column'>
-                    <p class='d-flex justify-content-center'>{{ allergen.name }}:</p>
+        <div class='col-sm-6'>
+            <a class='d-flex justify-content-center border allergens' href="{% url 'allergens:comments' allergen.name %}">
+                <div class=''>
+                    <p class=''>{{ allergen.name }}:</p>
                     {% if allergen.comment_set.all %}
                     <p class="badge badge-light">
                         {% with logs=allergen.comment_set.count %} 

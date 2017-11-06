@@ -23,12 +23,32 @@ body {
     color: lightgrey;
 }
 
-.allergen a{
+.allergens{
     color: lightgrey;
+    margin: 5px 0;
+}
+
+.allergens:hover {
+    background: grey;
+    text-decoration: none;
+    color: lightgrey;
+}
+
+.comments {
+    margin: 5px 0;
+}
+
+.comments input {
+    margin: 0 0 3px 0;
+}
+
+.comments:hover {
+    background-color: rgba(0,0,0,.1);
 }
 
 .update {
     display: inline;
+    
 }
 
 .delete {
