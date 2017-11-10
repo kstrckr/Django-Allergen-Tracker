@@ -8,6 +8,9 @@ from . import forms
 
 
 class AllergenList(generic.ListView):
+    '''
+    List view of all allergens
+    '''
     model = Allergen
     template_name = 'allergens/index.html'
     context_object_name = 'allergen_list'
@@ -16,6 +19,9 @@ class AllergenList(generic.ListView):
         return Allergen.objects.all().order_by('name')
 
 class CreateComment(generic.CreateView):
+    '''
+    Comment Creation View
+    '''
     model = Comment
     fields = [
         'comment_text',
@@ -39,6 +45,9 @@ class CreateComment(generic.CreateView):
         return reverse('allergens:comments', kwargs={'allergen':allergen})
 
 class CommentUpdate(generic.UpdateView):
+    '''
+    Comment Update View
+    '''
     pass
     model = Comment
     fields = [
@@ -51,6 +60,9 @@ class CommentUpdate(generic.UpdateView):
         return reverse('allergens:comments', kwargs={'allergen':allergen})
 
 class CommentList(generic.ListView):
+    '''
+    List of comments tied to a specific allergen
+    '''
     model = Comment
     template_name = 'allergens/comments.html'
     context_object_name = 'allergen_comments'
@@ -65,6 +77,9 @@ class CommentList(generic.ListView):
         return context
 
 class CommentDelete(generic.DeleteView):
+    '''
+    Comment Delete View
+    '''
     model = Comment
     
     def get_success_url(self):
