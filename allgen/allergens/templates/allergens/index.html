@@ -4,6 +4,7 @@
 Allergen Tracker - Home
 {% endblock title %}
 
+<!-- Loads and displays a list of all the allergens saved in the DB -->
 {% block content %}
 <div class='container w-75'>
     {% if allergen_list %}
@@ -28,6 +29,7 @@ Allergen Tracker - Home
         {% endfor %}
     </div>
     {% else %}
+    <!-- no-allergens saved error message -->
     <p>no allergens in DB</p>
     {% endif %}
 </div>
