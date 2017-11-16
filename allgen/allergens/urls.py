@@ -5,6 +5,8 @@ app_name = 'allergens'
 urlpatterns = [
     # base index url
     url(r'^$', views.AllergenList.as_view(), name='root'),
+    # about page template view
+    url(r'^about/$', views.AboutTemplate.as_view(), name='about'),
     # list all comments for specific allergen
     url(r'^(?P<allergen>\w+)/$', views.CommentList.as_view(), name='comments'),
     # comment delete URL

@@ -85,3 +85,6 @@ class CommentDelete(generic.DeleteView):
     def get_success_url(self):
         allergen = self.kwargs['allergen']
         return reverse('allergens:comments', kwargs={'allergen':allergen})
+
+class AboutTemplate(generic.TemplateView):
+    template_name = 'allergens/about.html'
