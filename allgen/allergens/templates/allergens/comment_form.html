@@ -1,7 +1,21 @@
 {% extends 'layout.html' %}
 
+{% block title %}
+{% if object.allergen.name %}
+    {{ object.allergen.name }} - Edit a Comment
+{% else %}
+    {{ allergen_name }} - Save a Comment
+{% endif %}
+{% endblock title%}
+
 {% block content %}
-<h1 class='w-75 mx-auto container'>Enter a comment for {{ allergen_name }}</h1>
+<h1 class='w-75 mx-auto container'>Enter a comment for 
+    {% if object.allergen.name %}
+        {{ object.allergen.name }}
+    {% else %}
+        {{ allergen_name }}
+    {% endif %}
+</h1>
 <div class='w-75 mx-auto container custom-form'>
     <form action='' method='post'>
         {% csrf_token %}
