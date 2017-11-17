@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-<!-- Changes title based on whether user is working with an edit view or create view -->
+{# Changes title based on whether user is working with an edit view or create view #}
 {% if object.allergen.name %}
     {{ object.allergen.name }} - Edit a Comment
 {% else %}
