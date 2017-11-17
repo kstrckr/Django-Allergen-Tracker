@@ -2,6 +2,8 @@
 
 # Instructions:
 
+    After cloning the repo: 
+    
     1. cd from the repo's root directory into /allgen
 
     2. Activate your Python 3 virtual environment of choice
